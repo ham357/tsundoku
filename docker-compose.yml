@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  api:
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - ./api:/go/1.15.2/src/github.com/ham357/tsundoku/api
+    tty: true
