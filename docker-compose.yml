@@ -8,3 +8,18 @@ services:
     volumes:
       - ./api:/go/1.15.2/src/github.com/ham357/tsundoku/api
     tty: true
+
+  mysql:
+    image: mysql:5.7.22
+    environment:
+        MYSQL_ROOT_PASSWORD: admin
+        MYSQL_USER: admin
+        MYSQL_PASSWORD: admin
+        MYSQL_DATABASE: tsundoku
+    ports:
+      - "3306:3306"
+    container_name: mysql
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./db/sql:/docker-entrypoint-initdb.d
