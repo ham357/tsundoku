@@ -13,6 +13,8 @@ RUN go get -u github.com/go-sql-driver/mysql \
   && go get -u github.com/gorilla/mux \
   && go get -u github.com/jinzhu/gorm \
   && go get -u github.com/gin-contrib/cors \
-  && go get -u gopkg.in/ini.v1
+  && go get -u gopkg.in/ini.v1 \
+  && go get -u github.com/cosmtrek/air \
+  && go get -u github.com/go-delve/delve/cmd/dlv
 
-ENTRYPOINT ["go", "run", "server.go"]
+CMD air -c .air.toml

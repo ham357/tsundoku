@@ -5,14 +5,20 @@ services:
     build: .
     ports:
       - 8080:8080
+      - 2345:2345
     depends_on:
       - db
     volumes:
       - ./api:/go/1.15.2/src/github.com/ham357/tsundoku/api
+    tty: true
     environment:
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
       MYSQL_DATABASE: tsundoku
+    security_opt:
+      - apparmor:unconfined
+    cap_add:
+      - SYS_PTRACE
 
   db:
     image: mysql:5.7
@@ -25,8 +31,12 @@ services:
         MYSQL_PASSWORD: admin
         MYSQL_DATABASE: tsundoku
     ports:
-      - "4444:3306"
+      - "3306:3306"
     volumes:
       - ./db/data:/var/lib/mysql
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./db/sql:/docker-entrypoint-initdb.d
+    security_opt:
+      - apparmor:unconfined
+    cap_add:
+      - SYS_PTRACE
