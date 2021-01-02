@@ -18,6 +18,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~/plugins/cookies-to-state',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -34,7 +35,8 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     '@nuxtjs/bulma',
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'cookies-to-state',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
