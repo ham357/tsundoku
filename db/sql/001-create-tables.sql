@@ -10,3 +10,13 @@ create table IF not exists `books`
  `deleted_at`       Datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+create table IF not exists `users`
+(
+ `id`               INT(20) AUTO_INCREMENT,
+ `uid`              INT NOT NULL,
+ `created_at`       Datetime DEFAULT NULL,
+ `updated_at`       Datetime DEFAULT NULL,
+ `deleted_at`       Datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
