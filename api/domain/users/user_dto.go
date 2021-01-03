@@ -9,9 +9,10 @@ import (
 
 type User struct {
 	gorm.Model
-	Name   string `json:"name"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
+	UID       string     `json:"-"`
+	Name      string     `json:"name"`
+	Email     string     `json:"email"`
+	Password  string     `json:"password"`
 }
 
 func (u *User) Validate() *errors.ApiErr {
