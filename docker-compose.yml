@@ -15,6 +15,10 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
       MYSQL_DATABASE: tsundoku
+      USER_NAME:
+      USER_ID:
+      GROUP_NAME:
+      GROUP_ID:
     security_opt:
       - apparmor:unconfined
     cap_add:

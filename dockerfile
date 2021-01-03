@@ -1,5 +1,8 @@
 FROM golang:latest
 
+COPY entrypoint.sh /var/tmp
+CMD bash -E /var/tmp/entrypoint.sh && /bin/bash
+
 ENV SRC_DIR=/go/1.15.2/src/github.com/ham357/tsundoku/api
 
 WORKDIR $SRC_DIR
