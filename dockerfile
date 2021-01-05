@@ -18,6 +18,8 @@ RUN go get -u github.com/go-sql-driver/mysql \
   && go get -u github.com/gin-contrib/cors \
   && go get -u gopkg.in/ini.v1 \
   && go get -u github.com/cosmtrek/air \
-  && go get -u github.com/go-delve/delve/cmd/dlv
+  && go get -u github.com/go-delve/delve/cmd/dlv \
+  && go get -u firebase.google.com/go/ \
+  && go get -u github.com/valyala/fasthttp
 
 CMD air -c .air.toml
