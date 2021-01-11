@@ -13,3 +13,5 @@
 /db/data
 tmp/
 .env
+api/tsundoku.json
+.idea/
