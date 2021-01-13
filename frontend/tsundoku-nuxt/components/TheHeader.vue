@@ -10,6 +10,13 @@
       <div class="navbar-start">
         <div class="navbar-item">
           <div class="field has-addons" />
+          <div
+            v-if="isLoggedIn"
+          >
+            <nuxt-link class="navbar-item subtitle is-5" to="/books">
+              本を積む
+            </nuxt-link>
+          </div>
         </div>
       </div>
 
