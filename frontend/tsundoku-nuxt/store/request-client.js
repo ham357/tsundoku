@@ -17,8 +17,8 @@ export class RequestClient {
             });
     }
 
-    async post(uri) {
-        return await this.axios.$post(uri)
+    async post(uri, body) {
+        return await this.axios.$post(uri, body)
             .catch (err => {
                 return this.retry(err);
             });

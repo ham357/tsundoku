@@ -43,7 +43,7 @@
             <div class="control">
               <button
                 class="button is-link"
-                @click="login"
+                @click="book"
               >
                 Submit
               </button>
@@ -56,20 +56,28 @@
 </template>
 
 <script>
+import ROUTES from '~/routes/api';
+
 export default {
     data() {
         return {
-            email: '',
-            password: ''
+            name: '',
+            detail: '',
+            price: '',
         };
     },
     methods: {
-        login() {
-            const user = {
-                email: this.email,
-                password: this.password
+        async book() {
+            const book = {
+                name: this.name,
+                detail: this.detail,
+                price: this.price,
+                uri: ROUTES.POST.BOOK,
             };
-            this.$store.dispatch('login', user);
+            await this.$store.dispatch('book', book);
+            // await this.$store.dispatch('book', {
+            //     uri: ROUTES.POST.BOOK,
+            // });
         }
     }
 };

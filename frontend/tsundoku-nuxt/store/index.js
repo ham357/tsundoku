@@ -1,7 +1,9 @@
+import {createRequestClient} from '~/store/request-client';
 import firebase from '~/plugins/firebase';
 
 export const state = () => ({
     token: '',
+    book: {},
 });
 
 export const actions = {
@@ -34,11 +36,19 @@ export const actions = {
         this.$cookies.remove('jwt_token');
         this.app.router.push('/');
     },
+    async book({commit}, payload) {
+        const client = createRequestClient(this.$axios, this.$cookies, this);
+        const res = await client.post(payload.uri, payload);
+        commit('mutateBook', res);
+    },
 };
 
 export const mutations = {
     mutateToken(state, payload) {
         state.token = payload;
+    },
+    mutateBook(state, payload) {
+        state.book = payload;
     },
 };
 
