@@ -53,6 +53,11 @@ export default {
           customProperties: false
         }
       }
+    },
+    extend (config, ctx) {
+      if (ctx.isDev && ctx.isClient) {
+        config.devtool = 'inline-cheap-module-source-map'
+      }
     }
   }
 }
