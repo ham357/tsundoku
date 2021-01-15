@@ -3,6 +3,8 @@ package books
 import (
 	"net/http"
 	"strconv"
+	"io/ioutil"
+	"encoding/json"
 
 	"github.com/labstack/echo"
 	"firebase.google.com/go/auth"
@@ -25,10 +27,14 @@ func CreateBook() echo.HandlerFunc{
 			}
 		}
 
-		if err := c.Bind(&book); err != nil {
+		jsonData, err := ioutil.ReadAll(c.Request().Body)
+		json.Unmarshal(jsonData, &book)
+
+		if err != nil {
 			apiErr := errors.NewBadRequestError("invalid json body")
 			return c.JSON(apiErr.Status, apiErr)
 		}
+
 		newBook, saveErr := services.CreateBook(book)
 		if saveErr != nil {
 			return c.JSON(saveErr.Status, saveErr)

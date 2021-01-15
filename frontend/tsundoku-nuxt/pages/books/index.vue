@@ -2,7 +2,7 @@
   <div class="section">
     <div class="columns">
       <div class="column is-6">
-        <div class="box">
+        <form class="box" @submit.prevent="book">
           <div class="field">
             <label class="label">Name</label>
             <div class="control">
@@ -31,7 +31,7 @@
             <label class="label">Price</label>
             <div class="control">
               <input
-                v-model="price"
+                v-model.number="price"
                 class="input is-info"
                 type="number"
                 placeholder="Price"
@@ -41,15 +41,12 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button
-                class="button is-link"
-                @click="book"
-              >
+              <button type="submit">
                 Submit
               </button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -68,16 +65,15 @@ export default {
     },
     methods: {
         async book() {
-            const book = {
-                name: this.name,
-                detail: this.detail,
-                price: this.price,
+            const payload = {
                 uri: ROUTES.POST.BOOK,
+                params: {
+                    name: this.name,
+                    detail: this.detail,
+                    price: this.price,
+                }
             };
-            await this.$store.dispatch('book', book);
-            // await this.$store.dispatch('book', {
-            //     uri: ROUTES.POST.BOOK,
-            // });
+            await this.$store.dispatch('book', payload);
         }
     }
 };
