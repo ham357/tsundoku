@@ -30,7 +30,7 @@ export class RequestClient {
 
         if (code === 401 && resfreshToken && this.hasRetried === false) {
             this.hasRetried = true;
-            const apiKey = process.env.API_KEY;
+            // const apiKey = process.env.API_KEY;
 
             if (resfreshToken) {
                 const data = {
@@ -42,7 +42,7 @@ export class RequestClient {
                     method: 'POST',
                     headers: {'content-type': 'application/x-www-form-urlencoded'},
                     data: qs.stringify(data),
-                    url: `https://securetoken.googleapis.com/v1/token?key=${apiKey}`
+                    url: 'https://securetoken.googleapis.com/v1/token?key=AIzaSyBbCtBa-s0UfQNsAX6PuSie7FZj0x2Ntic'
                 });
 
                 this.store.dispatch('setToken', res.id_token);
