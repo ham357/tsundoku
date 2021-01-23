@@ -13,3 +13,8 @@
 /db/data
 tmp/
 .env
+api/tsundoku.json
+.idea/
+
+# DevContainer
+.devcontainer

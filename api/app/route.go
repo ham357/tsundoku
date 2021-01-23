@@ -7,6 +7,7 @@ import (
 
 	"github.com/labstack/echo"
 	"github.com/ham357/tsundoku/api/controllers/books"
+	"github.com/ham357/tsundoku/api/middlewares"
 )
 
 type Template struct {
@@ -28,7 +29,7 @@ func Init(e *echo.Echo) {
 			return c.String(http.StatusOK, "Hello, World!")
 	})
 
-	b := e.Group("/books")
+	b := e.Group("/books", middlewares.FirebaseGuard())
 	{
 		b.GET("/:book_id", books.GetBook())
 		b.POST("", books.CreateBook())

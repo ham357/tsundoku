@@ -14,7 +14,10 @@ create table IF not exists `books`
 create table IF not exists `users`
 (
  `id`               INT(20) AUTO_INCREMENT,
- `uid`              INT NOT NULL,
+ `uid`              VARCHAR(255) NOT NULL,
+ `name`             VARCHAR(255) NOT NULL,
+ `email`            VARCHAR(255) NOT NULL,
+ `password`         VARCHAR(255) NOT NULL,
  `created_at`       Datetime DEFAULT NULL,
  `updated_at`       Datetime DEFAULT NULL,
  `deleted_at`       Datetime DEFAULT NULL,

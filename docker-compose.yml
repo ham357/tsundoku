@@ -24,6 +24,22 @@ services:
     cap_add:
       - SYS_PTRACE
 
+  front_end:
+    build:
+      context: .
+      dockerfile: Dockerfile_front
+    ports:
+      - 3000:3000
+    command: yarn run dev
+    volumes:
+      - .:/tsundoku-nuxt
+      # exclude volumes
+      - /frontend/tsundoku-nuxt/node_modules
+    tty: true
+    depends_on:
+      - api
+      - db
+
   db:
     image: mysql:5.7
     command: >
@@ -35,7 +51,7 @@ services:
         MYSQL_PASSWORD: admin
         MYSQL_DATABASE: tsundoku
     ports:
-      - "3306:3306"
+      - "4444:3306"
     volumes:
       - ./db/data:/var/lib/mysql
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
