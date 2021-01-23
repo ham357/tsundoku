@@ -56,21 +56,21 @@
 import ROUTES from '~/routes/api';
 
 export default {
-    data() {
+    data () {
         return {
             name: '',
             detail: '',
-            price: '',
+            price: ''
         };
     },
     methods: {
-        async book() {
+        async book () {
             const payload = {
                 uri: ROUTES.POST.BOOK,
                 params: {
                     name: this.name,
                     detail: this.detail,
-                    price: this.price,
+                    price: this.price
                 }
             };
             await this.$store.dispatch('book', payload);

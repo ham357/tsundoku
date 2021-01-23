@@ -2,7 +2,7 @@ export const ROUTES = {
     GET: {
     },
     POST: {
-        BOOK: '/books',
+        BOOK: '/books'
     }
 };
 

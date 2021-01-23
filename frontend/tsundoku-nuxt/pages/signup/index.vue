@@ -45,14 +45,14 @@
 
 <script>
 export default {
-    data() {
+    data () {
         return {
             email: '',
             password: ''
         };
     },
     methods: {
-        signUp() {
+        signUp () {
             const user = {
                 email: this.email,
                 password: this.password

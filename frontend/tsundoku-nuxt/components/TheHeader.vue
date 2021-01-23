@@ -60,12 +60,12 @@
 <script>
 export default {
     computed: {
-        isLoggedIn() {
+        isLoggedIn () {
             return !!this.$store.getters.isLoggedIn;
         }
     },
     methods: {
-        logout() {
+        logout () {
             this.$store.dispatch('logout');
         }
     }
