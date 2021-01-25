@@ -32,7 +32,7 @@ services:
       - 3000:3000
     command: yarn run dev
     volumes:
-      - .:/tsundoku-nuxt
+      - ./frontend/tsundoku-nuxt:/frontend/tsundoku-nuxt
       # exclude volumes
       - /frontend/tsundoku-nuxt/node_modules
     tty: true
