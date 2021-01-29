@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: Dockerfile_front
+run:
+  web: yarn run start
