@@ -13,4 +13,6 @@ RUN apk update \
   && apk upgrade \
   && apk add --no-cache bash \
   && npm install -g nuxt \
-  && yarn add --dev @nuxtjs/eslint-module
+  && yarn add --dev @nuxtjs/eslint-module \
+  && yarn install \
+  && yarn run build
