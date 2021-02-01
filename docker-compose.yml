@@ -24,23 +24,6 @@ services:
     cap_add:
       - SYS_PTRACE
 
-  front_end:
-    build:
-      context: .
-      dockerfile: Dockerfile_front
-    ports:
-      - 3000:3000
-      - 9229:9229
-    command: yarn run dev
-    volumes:
-      - ./frontend/tsundoku-nuxt:/frontend/tsundoku-nuxt
-      # exclude volumes
-      - /frontend/tsundoku-nuxt/node_modules
-    tty: true
-    depends_on:
-      - api
-      - db
-
   db:
     image: mysql:5.7
     command: >
